@@ -40,6 +40,17 @@ bool RTC_DS3231::lostPower(void) {
 
 /**************************************************************************/
 /*!
+    @brief  Check the control register Enable Oscillator (EOSC) bit
+    @return True if the bit is set (oscillator is stopped when DS3231 
+    switches to VBAT) or false (oscillator is enabled when switched to VBAT)
+*/
+/**************************************************************************/
+bool RTC_DS3231::stoppedOscillator(void) {
+  return read_register(DS3231_CONTROL) >> 7;
+}
+
+/**************************************************************************/
+/*!
     @brief  Set the date and flip the Oscillator Stop Flag
     @param dt DateTime object containing the date/time to set
 */

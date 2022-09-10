@@ -372,6 +372,7 @@ public:
   bool begin(TwoWire *wireInstance = &Wire);
   void adjust(const DateTime &dt);
   bool lostPower(void);
+  bool stoppedOscillator(void);
   DateTime now();
   Ds3231SqwPinMode readSqwPinMode();
   void writeSqwPinMode(Ds3231SqwPinMode mode);
